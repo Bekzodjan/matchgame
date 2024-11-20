@@ -1,10 +1,9 @@
-// script.js
 const cardValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 let shuffledCards = [...cardValues, ...cardValues].sort(() => Math.random() - 0.5);
 let flippedCards = [];
 let matchedCards = 0;
+let start = false;
 
-// Function to create and display cards
 function createCards() {
     const cardGrid = document.querySelector('.card-grid');
     shuffledCards.forEach((value, index) => {
@@ -17,7 +16,6 @@ function createCards() {
     });
 }
 
-// Function to flip the card
 function flipCard() {
     if (flippedCards.length === 2 || this.classList.contains('flipped') || this.classList.contains('matched')) {
         return;
@@ -32,7 +30,6 @@ function flipCard() {
     }
 }
 
-// Function to check if the flipped cards match
 function checkMatch() {
     const [firstCard, secondCard] = flippedCards;
 
@@ -55,5 +52,4 @@ function checkMatch() {
     flippedCards = [];
 }
 
-// Initialize the game
 createCards();
